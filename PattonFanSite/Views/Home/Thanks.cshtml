@@ -1,0 +1,21 @@
+﻿@model PattonFanSite.Models.StoriesResponse
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Thanks</title>
+</head>
+<body class="text-center">
+    <div>
+        <h1>Thank-you, @Model.Name!</h1>
+        <h2>Title: @Model.Title </h2> 
+        <h3>Date: @Model.Date</h3>
+        <p>@Model.Story</p>
+    </div>
+</body>
+</html>
