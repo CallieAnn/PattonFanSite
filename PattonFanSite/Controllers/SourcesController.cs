@@ -15,6 +15,16 @@ namespace PattonFanSite.Controllers
             return View();
         }
 
+        public ViewResult Books()
+        {
+            return View();
+        }
+
+        public ViewResult Online()
+        {
+            return View();
+        }
+
 
     }
 }
