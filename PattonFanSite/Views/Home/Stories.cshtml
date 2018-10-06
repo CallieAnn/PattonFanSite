@@ -1,0 +1,30 @@
+﻿
+@{
+    Layout = null;
+}
+
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Stories</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <div class="text-center">
+        <h1>Stories</h1>
+        View, rate, and comment on stories here! Or if you'd like to share your own story,
+        please visit the <a asp-action="StoriesForm">Stories Form</a> page.  
+    </div>
+    <div>
+        @*@{ 
+            foreach (StoriesResponse s in Repository.Responses)
+            {
+                  @Html.DisplayFor(m => s);
+            }
+
+         }*@
+        </div>
+</body>
+</html>

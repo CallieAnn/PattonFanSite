@@ -38,5 +38,10 @@ namespace PattonFanSite.Controllers
                 return View();
             }
         }
+
+        public ViewResult Stories()
+        {
+            return View();
+        }
     }
 }
