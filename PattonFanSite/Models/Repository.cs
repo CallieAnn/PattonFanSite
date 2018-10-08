@@ -7,16 +7,12 @@ namespace PattonFanSite.Models
 {
     public static class Repository
     {
-        private static List<StoriesResponse> responses = new List<StoriesResponse>();
-        public static IEnumerable<StoriesResponse> Responses
-        {
-            get
-            {
-                return responses;
-            }
-        }
+        private static List<Story> responses = new List<Story>();
+ 
+        public static List<Story> Responses { get { return responses; } }
+    
 
-        public static void AddResponse(StoriesResponse response)
+        public static void AddResponse(Story response)
         {
             responses.Add(response);
         }

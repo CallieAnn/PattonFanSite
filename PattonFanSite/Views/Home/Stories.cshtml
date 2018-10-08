@@ -1,7 +1,8 @@
-﻿
+﻿@model List<Story>
 @{
     Layout = null;
 }
+
 
 <!DOCTYPE html>
 
@@ -18,13 +19,13 @@
         please visit the <a asp-action="StoriesForm">Stories Form</a> page.  
     </div>
     <div>
-        @*@{ 
-            foreach (StoriesResponse s in Repository.Responses)
-            {
-                  @Html.DisplayFor(m => s);
-            }
-
-         }*@
-        </div>
+        @foreach(Story story in Model)
+        {
+            @story.Title; <br />
+            @story.Date; <br />
+            @story.Name; <br />
+            @story.StoryText; 
+        }
+    </div>
 </body>
 </html>
