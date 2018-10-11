@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Link>
+@{
     Layout = null;
 }
 
@@ -12,8 +13,26 @@
 </head>
 <body class="text-center">
     <div>
-        <h3>Links of Interest</h3>
-        Here are some interesting links.  USLF, Tempel Lipizzans, Spanish Riding School, ArtToRide, Stud Book, etc.
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>URL</th>
+                    <th>Description</th>
+                </tr>
+            </thead>
+
+            <tbody>
+                @foreach (Link l in Model)
+                {
+                    <tr>
+                        <td>@l.Title</td>
+                        <td>@l.Url</td>
+                        <td>@l.Description</td>
+                    </tr>
+                }
+            </tbody>
+        </table>
     </div>
 </body>
 </html>

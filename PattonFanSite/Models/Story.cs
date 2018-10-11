@@ -8,6 +8,8 @@ namespace PattonFanSite.Models
 {
     public class Story
     {
+        /*Have to filter list IF the comment/rating must have story;
+         * Story can have comments/ratings is easier.  */
         private List<Comment> comments = new List<Comment>();
         private List<Rating> ratings = new List<Rating>();
 

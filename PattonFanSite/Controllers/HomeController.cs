@@ -26,6 +26,8 @@ namespace PattonFanSite.Controllers
                 };
                 Repository.AddResponse(story);
             }
+
+
         }
         public ViewResult Index()
         {

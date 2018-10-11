@@ -1,4 +1,5 @@
-﻿@{
+﻿@model List<Book>
+@{
     Layout = null;
 }
 
@@ -12,8 +13,30 @@
 </head>
 <body class="text-center">
     <div>
-        <h3>Books and Print</h3>
-        Books about Lipizzans, including some about WWII and General Patton.
+        <table class="table">
+            <thead>
+                <tr>
+                    <th>Title</th>
+                    <th>Author</th>
+                    <th>Description</th>
+                    <th>Publication Date</th>
+                </tr>
+            </thead>
+            
+            <tbody>
+                @foreach (Book b in Model)
+                {
+                    <tr>
+                        <td>@b.Title</td>
+                        <td>@b.Author</td>
+                        <td>@b.Description</td>
+                        <td>@b.PubDate</td>
+                    </tr>
+                }
+            </tbody>
+            
+        </table>
+        
     </div>
 </body>
 </html>
