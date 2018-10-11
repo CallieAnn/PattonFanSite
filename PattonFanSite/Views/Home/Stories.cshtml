@@ -21,10 +21,17 @@
     <div>
         @foreach(Story story in Model)
         {
+            <h3>Title</h3>
             @story.Title; <br />
+
+            <h3>Date</h3>
             @story.Date; <br />
+
+            <h3>Name</h3>
             @story.Name; <br />
-            @story.StoryText; 
+
+            <h3>Story</h3>
+            @story.StoryText; <br />
         }
     </div>
 </body>
