@@ -11,8 +11,9 @@
     <title>Books</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
-<body class="text-center">
-    <div>
+<body>
+    <div class="container">
+        <h1 class="text-center">Books</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -20,6 +21,7 @@
                     <th>Author</th>
                     <th>Description</th>
                     <th>Publication Date</th>
+                    <th>Purchase a Copy</th>
                 </tr>
             </thead>
             
@@ -31,6 +33,7 @@
                         <td>@b.Author</td>
                         <td>@b.Description</td>
                         <td>@b.PubDate</td>
+                        <td><a href="@b.Url">@b.Title</a></td>
                     </tr>
                 }
             </tbody>

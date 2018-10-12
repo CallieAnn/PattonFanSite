@@ -11,8 +11,9 @@
     <title>Online</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
-<body class="text-center">
-    <div>
+<body>
+    <div class="container">
+        <h1 class="text-center">Links</h1>
         <table class="table">
             <thead>
                 <tr>
@@ -27,7 +28,7 @@
                 {
                     <tr>
                         <td>@l.Title</td>
-                        <td>@l.Url</td>
+                        <td><a href=@l.Url>@l.Url</a></td>
                         <td>@l.Description</td>
                     </tr>
                 }

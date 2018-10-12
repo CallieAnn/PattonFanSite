@@ -11,5 +11,6 @@ namespace PattonFanSite.Models
         public string Author { get; set; }
         public string Description { get; set; }
         public DateTime PubDate { get; set; }
+        public string Url { get; set; }
     }
 }

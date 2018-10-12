@@ -23,7 +23,8 @@ namespace PattonFanSite.Controllers
                     Title = "The Perfect Horse",
                     Author = "Elizabeth Letts",
                     Description = "US mission to capture Lipizzan stallions taken by Nazis",
-                    PubDate = new DateTime(2016, 8, 23)
+                    PubDate = new DateTime(2016, 8, 23),
+                    Url = "https://www.amazon.com/Perfect-Horse-Priceless-Stallions-Kidnapped/dp/0345544803"
                 };
 
                 b2 = new Book()
@@ -31,7 +32,9 @@ namespace PattonFanSite.Controllers
                     Title = "The Spanish Riding School of Vienna",
                     Author = "Colonel A. Podhajsky",
                     Description = "About the Spanish Riding School and Lipizzans",
-                    PubDate = new DateTime(1964, 1, 1)
+                    PubDate = new DateTime(1964, 1, 1),
+                    Url = "https://www.amazon.com/Spanish-Riding-School-Vienna/dp/B0007JMMHI/ref=sr_1_1?s=books&ie=UTF8&qid=1539382989&sr=1-1&keywords=%22The+Spanish+Riding+School+of+Vienna%22"
+
                 };
 
                 Repository.AddBook(b1);

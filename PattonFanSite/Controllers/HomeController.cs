@@ -12,6 +12,7 @@ namespace PattonFanSite.Controllers
     public class HomeController : Controller
     {
         Story story;
+        Story storyA;
 
         public HomeController()
         {
@@ -25,7 +26,17 @@ namespace PattonFanSite.Controllers
                     StoryText = "asdfadf"
 
                 };
+
+                storyA = new Story()
+                {
+                    Name = "Meghan",
+                    Title = "Guess Who Ate the Pansies",
+                    Date = "7/28/18",
+                    StoryText = "Bye bye pansies, you taste too good to last long"
+
+                };
                 Repository.AddResponse(story);
+                Repository.AddResponse(storyA);
             }
 
 
@@ -65,6 +76,7 @@ namespace PattonFanSite.Controllers
         public ViewResult Stories()
         {
             List<Story> stories = Repository.Responses;
+            stories.Sort((s1, s2) => string.Compare(s1.Title, s2.Title, StringComparison.Ordinal));
             return View(stories);
         }
 
