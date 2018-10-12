@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using Microsoft.AspNetCore.Mvc;
 using PattonFanSite.Models;
+using System.Web;
 
 
 
@@ -65,6 +66,25 @@ namespace PattonFanSite.Controllers
         {
             List<Story> stories = Repository.Responses;
             return View(stories);
+        }
+
+        public IActionResult AddComment(string title)
+        {
+            return View("AddComment", HttpUtility.HtmlDecode(title));
+        }
+
+        [HttpPost]
+        public RedirectToActionResult AddComment(string title,
+                                                string commentText,
+                                                string contributor)
+        {
+            Story story = Repository.GetStoryByTitle(title);
+            story.Comments.Add(new Comment()
+            {
+                Contributor = new User() { Name = contributor },
+                CommentText = commentText
+            });
+            return RedirectToAction("Stories");
         }
     }
 }

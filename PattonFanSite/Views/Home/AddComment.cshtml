@@ -1,0 +1,26 @@
+﻿@model String
+@{
+    Layout = null;
+}
+<!DOCTYPE html>
+
+<html>
+<head>
+    <meta name="viewport" content="width=device-width" />
+    <title>Add a Comment</title>
+    <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
+</head>
+<body>
+    <h1>Comment for @Model</h1>
+    <form method="post">
+        <label for="commenttext">Your Comment</label><br />
+        <textarea typeof="text" name="commenttext"></textarea><br />
+       
+        <label for="contributor">Your Name</label><br />
+        <input name="contributor" /><br />
+
+        <input type="submit" value="enter" />
+    </form>
+</body>
+</html>
+

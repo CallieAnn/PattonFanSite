@@ -19,7 +19,7 @@
         please visit the <a asp-action="StoriesForm">Stories Form</a> page.  
     </div>
     <div>
-        @foreach(Story story in Model)
+        @foreach (Story story in Model)
         {
             <h3>Title</h3>
             @story.Title; <br />
@@ -32,6 +32,19 @@
 
             <h3>Story</h3>
             @story.StoryText; <br />
+
+            @if (story.Comments.Count > 0)
+            {
+                <h4>Comments</h4>
+                foreach (Comment c in story.Comments)
+                {
+                    @c.Contributor.Name  <br />
+                    @c.CommentText <br />
+
+            }
+        }
+
+            <a asp-action="AddComment" asp-route-title="@story.Title">Add a comment</a>
         }
     </div>
 </body>

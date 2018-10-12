@@ -30,5 +30,11 @@ namespace PattonFanSite.Models
         {
             links.Add(link);
         }
+
+        public static Story GetStoryByTitle(string title)
+        {
+            Story story = responses.Find(s => s.Title == title);
+            return story;
+        }
     }
 }
