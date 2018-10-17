@@ -74,12 +74,14 @@ namespace PattonFanSite.Controllers
         public ViewResult Books()
         {
             List<Book> books = Repository.Books;
+            books.Sort((b1, b2) => string.Compare(b1.Title, b2.Title, StringComparison.Ordinal));
             return View(books);
         }
 
         public ViewResult Online()
         {
             List<Link> links = Repository.Links;
+            links.Sort((l1, l2) => string.Compare(l1.Title, l2.Title, StringComparison.Ordinal));
             return View(links);
         }
 
