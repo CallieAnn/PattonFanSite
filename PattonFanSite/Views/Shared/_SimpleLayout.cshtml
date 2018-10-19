@@ -2,11 +2,11 @@
 <html>
 <head>
     <meta name="viewport" content="width=device-width" />
-    <title>Send Title Here</title>
+    <title>@ViewBag.Title</title>
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
-    <a asp-controller="Sources" asp-action="Sources">Back to Sources</a>
+    <a asp-controller="@ViewBag.BackController" asp-action="@ViewBag.BackPage">back to @ViewBag.BackPage</a>
     @RenderBody()
 </body>
 </html>

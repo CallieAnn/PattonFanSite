@@ -75,6 +75,10 @@ namespace PattonFanSite.Controllers
 
         public ViewResult Stories()
         {
+            //A fake comment to add to a story
+            ViewBag.FakeName = "Clementine Lewis";
+            ViewBag.FakeComment = "That's interesting.";
+
             List<Story> stories = Repository.Responses;
             stories.Sort((s1, s2) => string.Compare(s1.Title, s2.Title, StringComparison.Ordinal));
             return View(stories);
@@ -83,6 +87,7 @@ namespace PattonFanSite.Controllers
         public IActionResult AddComment(string title)
         {
             return View("AddComment", HttpUtility.HtmlDecode(title));
+            
         }
 
         [HttpPost]
