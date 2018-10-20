@@ -6,7 +6,9 @@
     <link rel="stylesheet" href="/lib/bootstrap/dist/css/bootstrap.css" />
 </head>
 <body>
-    <a asp-controller="@ViewBag.BackController" asp-action="@ViewBag.BackPage">back to @ViewBag.BackPage</a>
-    @RenderBody()
+    <div class="container body-content">
+        <a asp-controller="@ViewBag.BackController" asp-action="@ViewBag.BackPage">back to @ViewBag.BackPage</a>
+        @RenderBody()
+    </div>
 </body>
 </html>

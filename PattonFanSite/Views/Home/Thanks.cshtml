@@ -1,21 +1,15 @@
 ﻿@model PattonFanSite.Models.Story
 @{
-    Layout = null;
+    Layout = "_SimpleLayout";
+    ViewBag.BackController = "Home";
+    ViewBag.BackPage = "Stories";
+    ViewBag.Title = "Thanks";
+
 }
-
-<!DOCTYPE html>
-
-<html>
-<head>
-    <meta name="viewport" content="width=device-width" />
-    <title>Thanks</title>
-</head>
-<body class="text-center">
     <div>
         <h1>Thank-you, @Model.Name!</h1>
         <h2>Title: @Model.Title </h2> 
         <h3>Date: @Model.Date</h3>
         <p>@Model.StoryText</p>
     </div>
-</body>
-</html>
+
