@@ -7,19 +7,12 @@ namespace PattonFanSite.Models
 {
     public static class Repository
     {
-        private static List<Story> responses = new List<Story>();
         private static List<Book> books = new List<Book>();
         private static List<Link> links = new List<Link>();
- 
-        public static List<Story> Responses { get { return responses; } }
+
         public static List<Book> Books { get { return books; } }
         public static List<Link> Links { get { return links; } }
 
-
-        public static void AddResponse(Story response)
-        {
-            responses.Add(response);
-        }
 
         public static void AddBook(Book book)
         {
@@ -31,10 +24,5 @@ namespace PattonFanSite.Models
             links.Add(link);
         }
 
-        public static Story GetStoryByTitle(string title)
-        {
-            Story story = responses.Find(s => s.Title == title);
-            return story;
-        }
     }
 }
