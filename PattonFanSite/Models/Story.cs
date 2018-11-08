@@ -25,6 +25,7 @@ namespace PattonFanSite.Models
         [Required(ErrorMessage = "Please enter a story")]
         public string StoryText { get; set; }
 
+        //collections inherit from iEnumerable (list, dictionary, array)
         public List<Comment> Comments { get { return comments; } }
         public List<Rating> Ratings { get { return ratings; } }
     }
