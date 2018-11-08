@@ -8,12 +8,14 @@ namespace PattonFanSite.Repositories
 {
     public class StoryRepository : IStoryRepository
     {
+        private AppDbContext context;
         private List<Story> stories = new List<Story>();
         public List<Story> Stories { get { return stories; } }
 
         public StoryRepository()
         {
             AddFakeData();
+
         }
 
         public void AddStory(Story story)

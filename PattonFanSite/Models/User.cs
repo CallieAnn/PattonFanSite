@@ -11,6 +11,7 @@ namespace PattonFanSite.Models
         private List<Comment> comments = new List<Comment>();
         private List<Rating> ratings = new List<Rating>();
 
+        public int UserId { get; set; }
         public string Name { get; set; }
         public string Email { get; set; }
         public string Password { get; set; }

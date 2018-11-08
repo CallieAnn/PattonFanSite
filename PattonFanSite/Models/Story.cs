@@ -12,7 +12,7 @@ namespace PattonFanSite.Models
          * Story can have comments/ratings is easier.  */
         private List<Comment> comments = new List<Comment>();
         private List<Rating> ratings = new List<Rating>();
-
+        public int StoryId { get; set; }
         [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
 

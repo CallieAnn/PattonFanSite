@@ -7,6 +7,7 @@ namespace PattonFanSite.Models
 {
     public class Rating
     {
+        public int RatingId { get; set; }
         public int UserRating { get; set; }
         public User Contributor { get; set; }
     }
