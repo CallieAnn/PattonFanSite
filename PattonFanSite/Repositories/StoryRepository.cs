@@ -11,7 +11,10 @@ namespace PattonFanSite.Repositories
     {
         private AppDbContext context;
         private List<Story> stories = new List<Story>();
+        //private List<Comment> comments = new List<Comment>();
+
         public List<Story> Stories { get { return context.Stories.Include("Comments").ToList(); } }
+       // public List<Comment> Comments { get { return context.Comments.ToList(); } }
 
         public StoryRepository(AppDbContext appDbContext)
         {
@@ -21,10 +24,10 @@ namespace PattonFanSite.Repositories
 
         public void AddStory(Story story, User u)
         {
+            u.Stories.Add(story);
             
-            context.Stories.Add(story);
-            context.Users.Add(u);
-            //context.Stories.Update(story);
+            context.Users.Update(u);
+            //context.Users.Add(u);
             context.SaveChanges();
         }
 

@@ -10,7 +10,7 @@ using PattonFanSite.Repositories;
 namespace PattonFanSite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20181109065744_Initial")]
+    [Migration("20181109194215_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
