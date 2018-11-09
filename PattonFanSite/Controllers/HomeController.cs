@@ -41,6 +41,7 @@ namespace PattonFanSite.Controllers
             if (ModelState.IsValid)
             {
                 repo.AddStory(storiesResponse);
+  
                 return View("Thanks", storiesResponse);
             }
 
@@ -53,8 +54,8 @@ namespace PattonFanSite.Controllers
 
         public ViewResult Stories()
         {
-            ViewBag.FakeName = "Clementine Lewis";
-            ViewBag.FakeComment = "That's interesting.";
+           // ViewBag.FakeName = "Clementine Lewis";
+           // ViewBag.FakeComment = "That's interesting.";
             List<Story> stories = repo.Stories;
             stories.Sort((s1, s2) => string.Compare(s1.Title, s2.Title, StringComparison.Ordinal));
             return View(stories);
@@ -72,7 +73,7 @@ namespace PattonFanSite.Controllers
                                                 string contributor)
         {
             Story story = repo.GetStoryByTitle(title);
-            story.Comments.Add(new Comment()
+            repo.AddComment(story, new Comment()
             {
                 Contributor = new User() { Name = contributor },
                 CommentText = commentText

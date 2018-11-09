@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using Microsoft.EntityFrameworkCore;
 using PattonFanSite.Models;
 
 namespace PattonFanSite.Repositories
@@ -10,46 +11,37 @@ namespace PattonFanSite.Repositories
     {
         private AppDbContext context;
         private List<Story> stories = new List<Story>();
-        public List<Story> Stories { get { return stories; } }
+        public List<Story> Stories { get { return context.Stories.Include("Comments").ToList(); } }
 
-        public StoryRepository()
+        public StoryRepository(AppDbContext appDbContext)
         {
-            AddFakeData();
+            context = appDbContext;
 
         }
 
         public void AddStory(Story story)
         {
-            stories.Add(story);
+            
+            context.Stories.Add(story);
+            
+            //add a userID along with story??
+            context.SaveChanges();
         }
 
         public Story GetStoryByTitle(string title)
         {
-            Story story = stories.Find(s => s.Title == title);
+            Story story = context.Stories.First(s => s.Title == title);
             return story;
         }
 
-        public void AddFakeData()
+        public void AddComment(Story story, Comment comment)
         {
-            Story story = new Story()
-            {
-                Name = "Sam",
-                Title = "Patton's first day",
-                Date = "3/28/17",
-                StoryText = "asdfadf"
+            story.Comments.Add(comment);
+            context.Comment.Update(comment);
+            
+            context.Stories.Update(story);
+            context.SaveChanges();
 
-            };
-
-            Story storyA = new Story()
-            {
-                Name = "Meghan",
-                Title = "Guess Who Ate the Pansies",
-                Date = "7/28/18",
-                StoryText = "Bye bye pansies, you taste too good to last long"
-
-            };
-            stories.Add(story);
-            stories.Add(storyA);
         }
 
     }

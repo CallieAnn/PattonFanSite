@@ -48,5 +48,10 @@ namespace PattonFanSite.Repositories
             stories.Add(story);
             stories.Add(storyA);
         }
+
+        public void AddComment(Story story, Comment comment)
+        {
+            //to-do later
+        }
     }
 }

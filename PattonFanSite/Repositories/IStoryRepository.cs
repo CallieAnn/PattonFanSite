@@ -11,5 +11,6 @@ namespace PattonFanSite.Repositories
         List<Story> Stories { get; }
         void AddStory(Story story);
         Story GetStoryByTitle(string Title);
+        void AddComment(Story story, Comment comment);
     }
 }

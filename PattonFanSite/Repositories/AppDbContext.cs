@@ -13,5 +13,9 @@ namespace PattonFanSite.Repositories
             : base(options) { }
 
         public DbSet<Story> Stories { get; set; }
+        public DbSet<Comment> Comment { get; set; }
+        public DbSet<Rating> Rating { get; set; }
+        public DbSet<User> User { get; set; }
+        
     }
 }
