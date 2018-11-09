@@ -9,7 +9,7 @@ namespace PattonFanSite.Repositories
     public interface IStoryRepository
     {
         List<Story> Stories { get; }
-        void AddStory(Story story);
+        void AddStory(Story story, User user);
         Story GetStoryByTitle(string Title);
         void AddComment(Story story, Comment comment);
     }

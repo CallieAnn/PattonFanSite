@@ -37,7 +37,7 @@ namespace PattonFanSite.Migrations
 
                     b.HasIndex("StoryId");
 
-                    b.ToTable("Comment");
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("PattonFanSite.Models.Rating", b =>
@@ -58,7 +58,7 @@ namespace PattonFanSite.Migrations
 
                     b.HasIndex("StoryId");
 
-                    b.ToTable("Rating");
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("PattonFanSite.Models.Story", b =>
@@ -102,7 +102,7 @@ namespace PattonFanSite.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("PattonFanSite.Models.Comment", b =>

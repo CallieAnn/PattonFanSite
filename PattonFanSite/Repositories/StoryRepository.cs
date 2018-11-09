@@ -19,12 +19,12 @@ namespace PattonFanSite.Repositories
 
         }
 
-        public void AddStory(Story story)
+        public void AddStory(Story story, User u)
         {
             
             context.Stories.Add(story);
-            
-            //add a userID along with story??
+            context.Users.Add(u);
+            //context.Stories.Update(story);
             context.SaveChanges();
         }
 
@@ -37,8 +37,7 @@ namespace PattonFanSite.Repositories
         public void AddComment(Story story, Comment comment)
         {
             story.Comments.Add(comment);
-            context.Comment.Update(comment);
-            
+           
             context.Stories.Update(story);
             context.SaveChanges();
 

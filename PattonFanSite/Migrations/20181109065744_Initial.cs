@@ -8,7 +8,7 @@ namespace PattonFanSite.Migrations
         protected override void Up(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.CreateTable(
-                name: "User",
+                name: "Users",
                 columns: table => new
                 {
                     UserId = table.Column<int>(nullable: false)
@@ -19,7 +19,7 @@ namespace PattonFanSite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_User", x => x.UserId);
+                    table.PrimaryKey("PK_Users", x => x.UserId);
                 });
 
             migrationBuilder.CreateTable(
@@ -38,15 +38,15 @@ namespace PattonFanSite.Migrations
                 {
                     table.PrimaryKey("PK_Stories", x => x.StoryId);
                     table.ForeignKey(
-                        name: "FK_Stories_User_UserId",
+                        name: "FK_Stories_Users_UserId",
                         column: x => x.UserId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                 });
 
             migrationBuilder.CreateTable(
-                name: "Comment",
+                name: "Comments",
                 columns: table => new
                 {
                     CommentId = table.Column<int>(nullable: false)
@@ -57,15 +57,15 @@ namespace PattonFanSite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Comment", x => x.CommentId);
+                    table.PrimaryKey("PK_Comments", x => x.CommentId);
                     table.ForeignKey(
-                        name: "FK_Comment_User_ContributorUserId",
+                        name: "FK_Comments_Users_ContributorUserId",
                         column: x => x.ContributorUserId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Comment_Stories_StoryId",
+                        name: "FK_Comments_Stories_StoryId",
                         column: x => x.StoryId,
                         principalTable: "Stories",
                         principalColumn: "StoryId",
@@ -73,7 +73,7 @@ namespace PattonFanSite.Migrations
                 });
 
             migrationBuilder.CreateTable(
-                name: "Rating",
+                name: "Ratings",
                 columns: table => new
                 {
                     RatingId = table.Column<int>(nullable: false)
@@ -84,15 +84,15 @@ namespace PattonFanSite.Migrations
                 },
                 constraints: table =>
                 {
-                    table.PrimaryKey("PK_Rating", x => x.RatingId);
+                    table.PrimaryKey("PK_Ratings", x => x.RatingId);
                     table.ForeignKey(
-                        name: "FK_Rating_User_ContributorUserId",
+                        name: "FK_Ratings_Users_ContributorUserId",
                         column: x => x.ContributorUserId,
-                        principalTable: "User",
+                        principalTable: "Users",
                         principalColumn: "UserId",
                         onDelete: ReferentialAction.Restrict);
                     table.ForeignKey(
-                        name: "FK_Rating_Stories_StoryId",
+                        name: "FK_Ratings_Stories_StoryId",
                         column: x => x.StoryId,
                         principalTable: "Stories",
                         principalColumn: "StoryId",
@@ -100,23 +100,23 @@ namespace PattonFanSite.Migrations
                 });
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comment_ContributorUserId",
-                table: "Comment",
+                name: "IX_Comments_ContributorUserId",
+                table: "Comments",
                 column: "ContributorUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Comment_StoryId",
-                table: "Comment",
+                name: "IX_Comments_StoryId",
+                table: "Comments",
                 column: "StoryId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rating_ContributorUserId",
-                table: "Rating",
+                name: "IX_Ratings_ContributorUserId",
+                table: "Ratings",
                 column: "ContributorUserId");
 
             migrationBuilder.CreateIndex(
-                name: "IX_Rating_StoryId",
-                table: "Rating",
+                name: "IX_Ratings_StoryId",
+                table: "Ratings",
                 column: "StoryId");
 
             migrationBuilder.CreateIndex(
@@ -128,16 +128,16 @@ namespace PattonFanSite.Migrations
         protected override void Down(MigrationBuilder migrationBuilder)
         {
             migrationBuilder.DropTable(
-                name: "Comment");
+                name: "Comments");
 
             migrationBuilder.DropTable(
-                name: "Rating");
+                name: "Ratings");
 
             migrationBuilder.DropTable(
                 name: "Stories");
 
             migrationBuilder.DropTable(
-                name: "User");
+                name: "Users");
         }
     }
 }

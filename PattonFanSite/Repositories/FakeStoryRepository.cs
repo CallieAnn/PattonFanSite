@@ -15,9 +15,10 @@ namespace PattonFanSite.Repositories
         {
             AddFakeData();
         }
-        public void AddStory(Story story)
+        public void AddStory(Story story, User u)
         {
             stories.Add(story);
+            //do something w/user
         }
 
         public Story GetStoryByTitle(string title)

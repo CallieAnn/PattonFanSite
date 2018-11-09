@@ -10,7 +10,7 @@ using PattonFanSite.Repositories;
 namespace PattonFanSite.Migrations
 {
     [DbContext(typeof(AppDbContext))]
-    [Migration("20181108050123_Initial")]
+    [Migration("20181109065744_Initial")]
     partial class Initial
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
@@ -39,7 +39,7 @@ namespace PattonFanSite.Migrations
 
                     b.HasIndex("StoryId");
 
-                    b.ToTable("Comment");
+                    b.ToTable("Comments");
                 });
 
             modelBuilder.Entity("PattonFanSite.Models.Rating", b =>
@@ -60,7 +60,7 @@ namespace PattonFanSite.Migrations
 
                     b.HasIndex("StoryId");
 
-                    b.ToTable("Rating");
+                    b.ToTable("Ratings");
                 });
 
             modelBuilder.Entity("PattonFanSite.Models.Story", b =>
@@ -104,7 +104,7 @@ namespace PattonFanSite.Migrations
 
                     b.HasKey("UserId");
 
-                    b.ToTable("User");
+                    b.ToTable("Users");
                 });
 
             modelBuilder.Entity("PattonFanSite.Models.Comment", b =>

@@ -40,8 +40,12 @@ namespace PattonFanSite.Controllers
         {
             if (ModelState.IsValid)
             {
-                repo.AddStory(storiesResponse);
-  
+                User u = new User()
+                {
+                    Name = storiesResponse.Name
+                };
+                repo.AddStory(storiesResponse, u);
+                
                 return View("Thanks", storiesResponse);
             }
 
