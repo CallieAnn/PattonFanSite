@@ -42,6 +42,7 @@ namespace PattonFanSite
             services.AddMvc().SetCompatibilityVersion(CompatibilityVersion.Version_2_1);
             // Inject our repositories into our controllers
             services.AddTransient<IStoryRepository, StoryRepository>();
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -67,6 +68,9 @@ namespace PattonFanSite
                     name: "default",
                     template: "{controller=Home}/{action=Index}/{id?}");
             });
+
+            SeedData.Seed(app);
+            
         }
     }
 }
