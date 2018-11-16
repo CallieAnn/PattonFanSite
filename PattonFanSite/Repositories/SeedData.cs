@@ -29,8 +29,26 @@ namespace PattonFanSite.Repositories
                 u.Name = s.Name;
 
                 u.Stories.Add(s);
+
+                User u2 = new User
+                {
+                    Name = "Matthew"
+                };
+
+                Comment c = new Comment
+                {
+                    CommentText = "C'est pas faux",
+                    Contributor = u2
+                };
+
+                s.Comments.Add(c);
+
                 context.Users.Add(u);
+                context.Users.Add(u2);
+                
                 context.Stories.Add(s);
+                context.Comments.Add(c);
+
                 context.SaveChanges();
             }
         }
