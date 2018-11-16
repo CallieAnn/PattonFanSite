@@ -38,12 +38,16 @@ namespace PattonFanSite.Controllers
         [HttpPost]
         public ViewResult StoriesForm(Story storiesResponse)
         {
+           
             if (ModelState.IsValid)
-            {
+            { 
+                //create new user for name entered in story form
                 User u = new User()
                 {
                     Name = storiesResponse.Name
                 };
+
+                //add story and corresponding user to repository
                 repo.AddStory(storiesResponse, u);
                 
                 return View("Thanks", storiesResponse);
@@ -58,8 +62,6 @@ namespace PattonFanSite.Controllers
 
         public ViewResult Stories()
         {
-           // ViewBag.FakeName = "Clementine Lewis";
-           // ViewBag.FakeComment = "That's interesting.";
             List<Story> stories = repo.Stories;
             stories.Sort((s1, s2) => string.Compare(s1.Title, s2.Title, StringComparison.Ordinal));
             return View(stories);

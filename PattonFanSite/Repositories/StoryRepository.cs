@@ -10,11 +10,10 @@ namespace PattonFanSite.Repositories
     public class StoryRepository : IStoryRepository
     {
         private AppDbContext context;
-        private List<Story> stories = new List<Story>();
-        //private List<Comment> comments = new List<Comment>();
-
+     
+        //get stories with their comments from the context
         public List<Story> Stories { get { return context.Stories.Include("Comments").ToList(); } }
-       // public List<Comment> Comments { get { return context.Comments.ToList(); } }
+      
 
         public StoryRepository(AppDbContext appDbContext)
         {
@@ -27,7 +26,6 @@ namespace PattonFanSite.Repositories
             u.Stories.Add(story);
             
             context.Users.Update(u);
-            //context.Users.Add(u);
             context.SaveChanges();
         }
 
