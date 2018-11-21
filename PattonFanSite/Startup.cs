@@ -29,7 +29,7 @@ namespace PattonFanSite
 
             services.AddDbContext<AppDbContext>(options =>
                 options.UseSqlServer(
-                    Configuration.GetConnectionString("ConnectionString")));
+                    Configuration.GetConnectionString("SqlServerConnection")));
 
             services.Configure<CookiePolicyOptions>(options =>
             {
