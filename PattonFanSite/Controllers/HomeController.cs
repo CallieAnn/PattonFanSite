@@ -4,6 +4,7 @@ using Microsoft.AspNetCore.Mvc;
 using PattonFanSite.Models;
 using System.Web;
 using PattonFanSite.Repositories;
+using System.Linq;
 
 
 
@@ -67,7 +68,46 @@ namespace PattonFanSite.Controllers
             return View(stories);
         }
 
-        public IActionResult AddComment(string title)
+        [HttpPost]
+        public IActionResult Stories(string title, string comment)
+        {
+            List<Story> stories = new List<Story>();
+            if (!string.IsNullOrWhiteSpace(title))
+            {
+                var matchTitleStories = (from s in repo.Stories
+                                       where s.Title == title
+                                       select s).ToList();
+
+                if(matchTitleStories != null)
+                {
+                    stories = matchTitleStories;
+                }
+            }
+
+            else if(!string.IsNullOrWhiteSpace(comment))
+            {
+                var matchCommentStories = repo.Stories.Where(story =>
+                {
+                    var storyComment = story.Comments.Where(sComment =>
+                    {
+                        return sComment.CommentText == comment;
+                    }).ToList();
+                   
+                    return story.Comments.Contains(storyComment.FirstOrDefault());
+                 
+                }).ToList();
+
+                if (matchCommentStories != null)
+                {
+                    stories = matchCommentStories;
+                }
+            }
+
+            return View(stories);
+        }
+
+
+            public IActionResult AddComment(string title)
         {
             return View("AddComment", HttpUtility.HtmlDecode(title));
             

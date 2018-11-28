@@ -24,7 +24,7 @@
             <h3>Story</h3>
             @story.StoryText; <br />
 
-            /*if there is a story in the list, and there are 0 comments, a fake comment 
+            /*if there is a story in the list, and there are 0 comments, a fake comment
               will be added to the story*/
             @*@if(Model.Count > 0 && story.Comments.Count == 0)
             {
@@ -48,6 +48,17 @@
 
                 }
             }
+
+            <form method="post">
+                <h4>Search by Story Title or Comment Text:</h4>
+                Enter title:
+                <input name="title" />
+                <input type="submit" />
+                Enter comment:
+                <input name="comment" />
+                <input type="submit" />
+            </form>
+            
 
             <a asp-action="AddComment" asp-route-title="@story.Title">Add a comment</a>
         }
