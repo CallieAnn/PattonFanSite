@@ -13,13 +13,16 @@ namespace PattonFanSite.Models
         private List<Comment> comments = new List<Comment>();
         private List<Rating> ratings = new List<Rating>();
         public int StoryId { get; set; }
+
         [Required(ErrorMessage = "Please enter your name")]
         public string Name { get; set; }
 
+        [StringLength(100, MinimumLength = 2)]
         [Required(ErrorMessage = "Please enter a title")]
         public string Title { get; set; }
 
         [Required(ErrorMessage = "Please enter a date")]
+        [RegularExpression(@"^\d{1,2}\/\d{1,2}\/\d{4}$", ErrorMessage = "Invalid Date")]
         public string Date { get; set; }
 
         [Required(ErrorMessage = "Please enter a story")]

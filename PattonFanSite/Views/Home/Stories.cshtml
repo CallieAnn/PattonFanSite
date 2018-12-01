@@ -49,19 +49,20 @@
                 }
             }
 
-            <form method="post">
-                <h4>Search by Story Title or Comment Text:</h4>
-                Enter title:
-                <input name="title" />
-                <input type="submit" />
-                Enter comment:
-                <input name="comment" />
-                <input type="submit" />
-            </form>
+            
             
 
             <a asp-action="AddComment" asp-route-title="@story.Title">Add a comment</a>
         }
+        <form method="post">
+            <h4>Search by Story Title or Comment Text:</h4>
+            Enter title:
+            <input name="title" />
+            <input type="submit" />
+            Enter comment:
+            <input name="comment" />
+            <input type="submit" />
+        </form>
     </div>
 
 
